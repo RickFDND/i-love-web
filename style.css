@@ -5,4 +5,35 @@
 }
 body{
     font-family: "Ricks Font", monospace;
+
+
+
 }
+
+button:hover{
+cursor: pointer;
+}
+
+button:focus-visible{
+    outline: solid;
+}
+
+a {
+    color: red;
+text-decoration-thickness: .15em;
+text-underline-offset: .15em;
+}
+
+a:hover,
+:focus-visible{
+    text-decoration: wavy;
+outline-offset: .3em;
+}
+
+label:nth-of-type(1){
+accent-color:black;
+cursor: pointer;
+
+}
+
+
