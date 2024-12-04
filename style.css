@@ -4,7 +4,8 @@
     url("ricks-font-Regular.otf") format("opentype");
 }
 body{
-    font-family: "Ricks Font", monospace;
+    font-family: monospace;
+    font-size: 16px;
 
 
 
@@ -33,7 +34,8 @@ outline-offset: .3em;
 label:nth-of-type(1){
 accent-color:black;
 cursor: pointer;
-
 }
+
+
 
 
