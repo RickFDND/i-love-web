@@ -29,13 +29,14 @@
 
         let radioElementjes = document.querySelectorAll('input[type="radio"]')
         radioElementjes.forEach(function(abcrdad) {
-            abcrdad.addEventListener('click', function() {
+            abcrdad.addEventListener('input', function() {
                 radio.setCustomValidity('')
             })
         })
 
         // Voor alle radio elementjes
         // Luister naar het input event (of het click event)
+        // Als dat event wordt gevuurd, zet het eerste element dan weer op 'valid'
 
         </script>
         <style>
