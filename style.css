@@ -1,38 +1,22 @@
-@font-face{
-    font-family: "Ricks Font";
-    src:
-    url("ricks-font-Regular.otf") format("opentype");
-}
 body{
-    font-family: monospace;
-    font-size: 16px;
+    height: 100vh;
+    background-color: black;
 }
 
-button:hover{
-cursor: pointer;
+main{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    height: 100%;
+    width: auto;
+    
+    
 }
 
-button:focus-visible{
-    outline: solid;
+.groen{
+    background-color: green;
 }
 
-a {
-    color: red;
-text-decoration-thickness: .15em;
-text-underline-offset: .15em;
+.wit{
+    background-color: white;
 }
-
-a:hover,
-:focus-visible{
-    text-decoration: wavy;
-outline-offset: .3em;
-}
-
-label:nth-of-type(1){
-accent-color:black;
-cursor: pointer;
-}
-
-
-
-

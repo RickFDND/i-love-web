@@ -1,0 +1,38 @@
+@font-face{
+    font-family: "Ricks Font";
+    src:
+    url("ricks-font-Regular.otf") format("opentype");
+}
+body{
+    font-family: monospace;
+    font-size: 16px;
+}
+
+button:hover{
+cursor: pointer;
+}
+
+button:focus-visible{
+    outline: solid;
+}
+
+a {
+    color: red;
+text-decoration-thickness: .15em;
+text-underline-offset: .15em;
+}
+
+a:hover,
+:focus-visible{
+    text-decoration: wavy;
+outline-offset: .3em;
+}
+
+label:nth-of-type(1){
+accent-color:black;
+cursor: pointer;
+}
+
+
+
+
