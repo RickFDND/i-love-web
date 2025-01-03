@@ -8,15 +8,32 @@ main{
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     height: 100%;
-    width: auto;
+    max-height: 860,08px;
+    max-width: 860.08px;
+    object-fit: contain;
+    div{
+        display: grid;
+        text-align: center;
+        align-items: center;
+        object-fit: contain;
+        font-size: 65px;
+        
+    }
     
     
 }
 
 .groen{
     background-color: green;
+    
+    max-width: 107.51px;
+    max-height: 107.51px;
+
 }
 
 .wit{
     background-color: white;
+    
+    max-width: 107.51px;
+    max-height: 107.51px;
 }
