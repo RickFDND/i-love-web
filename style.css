@@ -5,35 +5,88 @@ body{
 
 main{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    height: 100%;
-    max-height: 860,08px;
-    max-width: 860.08px;
-    object-fit: contain;
+    grid-template-columns: repeat(8, 80px);
+    grid-template-rows: repeat(8, 80px);
+   
     div{
         display: grid;
-        text-align: center;
+        align-content: center;
         align-items: center;
-        object-fit: contain;
-        font-size: 65px;
-        
+        text-align: center;
+        font-size: 50px;
     }
-    
-    
+
+    img{
+        position: absolute;
+        z-index: -100;
+    }
 }
 
-.groen{
-    background-color: green;
-    
-    max-width: 107.51px;
-    max-height: 107.51px;
-
+button{
+    background: none;
+    border: none;
+    font-size: 50px;
 }
 
-.wit{
-    background-color: white;
-    
-    max-width: 107.51px;
-    max-height: 107.51px;
+/* begin positions black pieces */
+#blackpawn1{
+   grid-area: 7/1;
 }
+#blackpawn2{
+    grid-area: 7/2;
+}
+#blackpawn3{
+    grid-area: 7/3;
+}
+#blackpawn4{
+    grid-area: 7/4;
+    &:active{
+        grid-area: 5/4;
+    }
+}
+#blackpawn5{
+    grid-area: 7/5;
+}
+#blackpawn6{
+    grid-area: 7/6;
+}
+#blackpawn7{
+    grid-area: 7/7;
+}
+#blackpawn8{
+    grid-area: 7/8;
+}
+/*blackrooks*/
+#blackrook1{
+    grid-area: 8/1;
+}
+#blackrook2{
+    grid-area: 8/8;
+}
+/*blackknights*/
+#blackknight1{
+    grid-area: 8/2;
+}
+#blackknight2{
+    grid-area: 8/7;
+}
+/*blackbischops*/
+#blackbischop1{
+    grid-area: 8/3;
+}
+#blackbischop2{
+    grid-area: 8/6;
+}
+/*blackking&queen*/
+#blackking{
+    grid-area: 8/4;
+}
+#blackqueen{
+    grid-area: 8/5;
+}
+
+
+
+
+
+
