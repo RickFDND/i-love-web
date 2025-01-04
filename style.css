@@ -1,14 +1,16 @@
 body{
     height: 100vh;
     background-color: black;
+    display: flex;
+    gap: 10px;
 }
 
 main{
     display: grid;
-    grid-template-columns: repeat(8, 80px);
-    grid-template-rows: repeat(8, 80px);
+    grid-template-columns: repeat(8, 90px);
+    grid-template-rows: repeat(8, 90px);
    
-    div{
+    div, a{
         display: grid;
         align-content: center;
         align-items: center;
@@ -22,7 +24,16 @@ main{
     }
 }
 
-button{
+.Textfield{
+    color: white;
+    font-size: 50px;
+    text-align: center;
+    p{
+        width: 200px;
+    }
+}
+
+button, a{
     background: none;
     border: none;
     font-size: 50px;
@@ -40,7 +51,6 @@ button{
 }
 .blackpawn4{
     grid-area: 7/4;
-    transition: background-color 0.3s;
 }
 .blackpawn4.active{
     grid-area: 5/4;
@@ -68,8 +78,11 @@ button{
 #blackknight1{
     grid-area: 8/2;
 }
-#blackknight2{
+.blackknight2{
     grid-area: 8/7;
+}
+.blackknight2.active{
+    grid-area: 6/6;
 }
 /*blackbischops*/
 #blackbischop1{
@@ -98,7 +111,6 @@ button{
  }
  .whitepawn4{
      grid-area: 2/4;
-     transition: background-color 0.3s;
  }
  .whitepawn4.active{
      grid-area: 4/4;
@@ -119,12 +131,22 @@ button{
  #whiterook1{
      grid-area: 1/1;
  }
- #whiterook2{
+ .whiterook2{
      grid-area: 1/8;
+     cursor: pointer;
+     text-decoration: none;
+     color: black;
+ }
+ .whiterook2:hover{
+    font-size: 80px;
+    transition-duration: 3s;
  }
  /*whiteknights*/
- #whiteknight1{
+ .whiteknight1{
      grid-area: 1/2;
+ }
+ .whiteknight1.active{
+    grid-area: 3/3;
  }
  #whiteknight2{
      grid-area: 1/7;
