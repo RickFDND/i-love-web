@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: lightgray; 
+}
+
+.chessboard {
+    width: min(95vmin, 1072px); 
+    height: min(95vmin, 1072px);
+    background: conic-gradient(
+        from 0deg,
+        green 0deg 90deg,
+        white 90deg 180deg,
+        green 180deg 270deg,
+        white 270deg 360deg
+    );
+    background-size: calc(100% / 4) calc(100% / 4); 
+}
