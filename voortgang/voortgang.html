@@ -202,6 +202,16 @@ ik ga in de leertaak toepassen een pasword email en date omdat wij ook een inlog
     <strong>25. Ik kan formulierdata die is ge-POST door middelvan een POST of PATCH HTTP request opslaan in de REST API (0)</strong>
   </p>
 
+  <p><strong>12-03-2025</strong>
+  Workshop data filtering en template filters:
+  Experiment 1: Alleen sorteren op naam https://fdnd.directus.app/items/person?sort=name 
+  Experiment 2: Alleen mensen met name beginnend met D https://fdnd.directus.app/items/person/?filter={"name":{"_starts_with":"D"}}
+  Experiment 3: Alleen mensen met name beginnend met D of K https://fdnd.directus.app/items/person/?filter={"_or":[{"name":{"_starts_with":"D"}},{"name":{ "_starts_with":"K"}}]}
+  Experiment 4: Alle names en birthdates van mensen die een birthdate hebben ingevuld https://fdnd.directus.app/items/person?filter[birthdate][_neq]=null&fields=name,birthdate
+  Experiment 5: Alle names en birthdates van mensen geboren in 2002 https://fdnd.directus.app/items/person?filter[birthdate][_gte]=2002-01-01&filter[birthdate][_lt]=2003-01-01&fields=name,birthdate
+  Experiment 6: Alle mensen met een unieke fav_tag https://fdnd.directus.app/items/person?fields=fav_tag&distinct=true
+</p>
+
 
 <button>Hup</button>
 <a>hallo</a>
