@@ -5,6 +5,12 @@ import express from 'express'
 // Importeer de Liquid package (ook als dependency via npm geïnstalleerd)
 import { Liquid } from 'liquidjs';
 
+import { readdir, readFile } from 'node:fs/promises'
+
+const files = await readdir('content')
+
+console.log(files)
+
 // Maak een nieuwe Express applicatie aan, waarin we de server configureren
 const app = express()
 
@@ -30,7 +36,7 @@ app.get('/', function(request,response){
 
 //voortgang.liquid
 app.get('/voortgang', function(request,response){
-    response.render('voortgang.liquid')
+    response.render('voortgang.liquid', {files: files})
 })
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
