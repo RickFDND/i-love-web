@@ -7,6 +7,8 @@ import { Liquid } from 'liquidjs';
 
 import { readdir, readFile } from 'node:fs/promises'
 
+import { marked } from 'marked'
+
 const files = await readdir('content')
 
 console.log(files)
@@ -30,13 +32,23 @@ app.set('views', './views')
 app.use(express.urlencoded({extended: true}))
 
 //home.liquid
-app.get('/', function(request,response){
+app.get('/', async function(request, response){
     response.render('home.liquid')
 })
 
 //voortgang.liquid
-app.get('/voortgang', function(request,response){
+app.get('/voortgang', async function(request, response){
+
+  const opgemaakteContent = marked.parse(fileContents)
     response.render('voortgang.liquid', {files: files})
+})
+
+app.get('/voortgang/:slug', async function(req, res){
+
+  const fileContents = await readFile('content/' + req.params.slug + '.md', { encoding: 'utf8' })
+  const markedUpFileContents = marked.parse(fileContents)
+
+  response.render('slug.liquid', {fileContents: markedUpFileContents})
 })
 
 // Stel het poortnummer in waar Express op moet gaan luisteren

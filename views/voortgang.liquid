@@ -256,7 +256,9 @@ ik ga in de leertaak toepassen een pasword email en date omdat wij ook een inlog
 </p>
 
 <h2>Practicum I Love Web Semester 2</h2>
-{{ files|json}}
+{% for file in files %}
+  <a href="/voortgang/{{ file |slice:0,-3}}">{{ file|slice:0,-3 }}</a>
+{% endfor %}
 
 
 
