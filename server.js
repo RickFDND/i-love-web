@@ -43,13 +43,17 @@ app.get('/voortgang', async function(request, response){
     response.render('voortgang.liquid', {files: files})
 })
 
-app.get('/voortgang/:slug', async function(req, res){
+app.get('/voortgang/:slug', async function(request, response){
 
   const fileContents = await readFile('content/' + req.params.slug + '.md', { encoding: 'utf8' })
   const markedUpFileContents = marked.parse(fileContents)
 
+  console.log(marked)
+
   response.render('slug.liquid', {fileContents: markedUpFileContents})
 })
+
+
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000, als dit ergens gehost wordt, is het waarschijnlijk poort 80
