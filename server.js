@@ -53,6 +53,12 @@ app.get('/voortgang/:slug', async function(request, response){
   response.render('slug.liquid', {fileContents: markedUpFileContents})
 })
 
+app.get('/leuk', async function(request, response){
+
+  
+    response.render('leuk.liquid')
+})
+
 
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
