@@ -1,0 +1,58 @@
+<body>
+    <p>lightblue</p>
+    <p>kleur 2</p>
+    <p>kleur 3</p>
+    <p>kleur 4</p>
+
+    <button>
+        HutSL
+    </button>
+</body>
+
+<style>
+    body {
+        background-color: rgb(113, 43, 43);
+        font-size: 48px;
+    }
+
+    p:nth-of-type(1) {
+        color: #add8e6;
+    }
+
+    p:nth-of-type(2) {
+        color: rgb(173,216,230)
+    }
+    
+    p:nth-of-type(3) {
+        color: hsl(194.7,53.3%,79%);
+    }
+    
+    p:nth-of-type(4) {
+        color: lightblue;
+    }
+
+    button {
+        --h: 100;
+        --s: 50%;
+        --l: 50%;
+        --a: 1;
+
+        background: hsl(var(--h) var(--s) var(--l) / var(--a));
+
+        &:hover {
+            --l: 75%;
+        }
+
+        &:focus, &:active {
+            --s: 75%;
+        }
+
+        &[disabled] {
+            --s: 0%;
+            --a: 0.5;
+        }
+    }
+    
+    
+
+</style>
