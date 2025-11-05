@@ -31,26 +31,34 @@ app.set('views', './views')
 // Zorg dat werken met request data makkelijker wordt
 app.use(express.urlencoded({extended: true}))
 
-//home.liquid
-app.get('/', async function(request, response){
+// home.liquid
+app.get('/', async function(request, response) {
     response.render('home.liquid')
 })
 
-//voortgang.liquid
-app.get('/voortgang', async function(request, response){
-
-  const opgemaakteContent = marked.parse(fileContents)
-    response.render('voortgang.liquid', {files: files})
+// voortgang.liquid - toon alle bestanden
+app.get('/voortgang', async function(request, response) {
+    // Zorg dat 'files' correct is gedefinieerd
+    response.render('voortgang.liquid', { files: files })
 })
 
-app.get('/voortgang/:slug', async function(request, response){
+// individuele markdown pagina
+app.get('/voortgang/:slug', async function(request, response) {
+    try {
+        // Gebruik request.params (niet req.params)
+        const fileContents = await readFile('content/' + request.params.slug + '.md', { encoding: 'utf8' })
+        const markedUpFileContents = marked.parse(fileContents)
 
-  const fileContents = await readFile('content/' + req.params.slug + '.md', { encoding: 'utf8' })
-  const markedUpFileContents = marked.parse(fileContents)
-
-  console.log(marked)
-
-  response.render('slug.liquid', {fileContents: markedUpFileContents})
+        // Geef de geparste content door aan de template
+        response.render('slug.liquid', { 
+            fileContents: markedUpFileContents,
+            // of gebruik consistente naam:
+            // content: markedUpFileContents
+        })
+    } catch (error) {
+        console.error('Fout bij lezen van bestand:', error)
+        response.status(404).send('Pagina niet gevonden')
+    }
 })
 
 app.get('/leuk', async function(request, response){
@@ -58,8 +66,6 @@ app.get('/leuk', async function(request, response){
   
     response.render('leuk.liquid')
 })
-
-
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000, als dit ergens gehost wordt, is het waarschijnlijk poort 80
