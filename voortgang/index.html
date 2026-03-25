@@ -1,0 +1,96 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll-driven-animation</title>
+</head>
+<html>
+    <body>
+        <section class="hero">
+            <h1>Scroll-driven-animation</h1>
+        </section>
+        <section class="animation-container">
+            <div class="card-container">
+                <article class="card">
+                    <h2>Animation Content</h2>
+                </article>
+                <article class="card">
+                    <h2>hallo</h2>
+                </article>
+                <article class="card">
+                    <h2>doei</h2>
+                </article>
+                 <article class="card">
+                    <h2>tot ziens</h2>
+                </article>
+            </div>
+        </section>
+    </body>
+</html>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.hero {
+    min-height: 100vh;
+    align-content: center;
+    text-align: center;
+}
+
+.animation-container { 
+    height: 200vh;
+    overflow: clip;
+    view-timeline-name: --container; 
+
+    .card-container {
+        position: sticky;
+        top: 0;
+        display: flex;
+        width: 400vw;
+    }
+
+    .card {
+        position: sticky;
+        left: 0;
+        width: 100vw;
+        height: 100svh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 3rem;
+
+        /* scroll-driven-animation */
+        animation-timeline: --container;
+        animation-fill-mode: both;
+        animation-range: cover 100vh exit 1%;
+        animation-name: scrollanimation;
+    }
+
+    article:nth-child(1) {
+        background-color: lightblue;
+    }
+    article:nth-child(2) {
+        background-color: lightcoral;
+    }
+    article:nth-child(3) {
+        background-color: lightgreen;
+    }
+    article:nth-child(4) {
+        background-color: lightyellow;
+    }
+}
+
+/* Scroll animatie */
+@keyframes scrollanimation {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-300vw);
+    }
+}
+</style>
