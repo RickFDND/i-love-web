@@ -13,6 +13,7 @@
       <button popovertarget="menu">Menu</button>
     </div>
     <nav popover="menu" id="menu">
+      <button popovertarget="menu" class="close-button">close</button>
       <ul>
         <li><a href="overzicht.html">Overzicht</a></li>
         <li><a href="voortgang.html">Voortgang</a></li>
@@ -67,6 +68,14 @@
       background-color: inherit;
       padding: 1rem;
 
+      .close-button {
+        display: none;
+        border: none;
+        background: none;
+        color: white;
+        font-size: 1rem;
+      }
+
       ul {
         display: flex;
         justify-content: center;
@@ -92,6 +101,13 @@
       inset: 0 0 auto auto;
       margin: 0;
       background-color: #333;
+
+      .close-button {
+        display: block;
+        position: absolute;
+        top: 1.5rem;
+        right: 1rem;
+      }
     }
 
     nav:popover-open {
