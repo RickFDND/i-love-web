@@ -1,0 +1,107 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Popover menu</title>
+</head>
+
+<html>
+
+<body>
+  <header>
+    <div class="wrapper">
+      <img src="../IMG/schaakbord.png" alt="Schaakbord" height="50" width="50">
+      <button popovertarget="menu">Menu</button>
+    </div>
+    <nav popover="menu" id="menu">
+      <ul>
+        <li><a href="overzicht.html">Overzicht</a></li>
+        <li><a href="voortgang.html">Voortgang</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+</body>
+
+</html>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  header {
+    display: flex;
+    flex-direction: column;
+    background-color: #333;
+    height: max-content;
+    padding: 0.5rem 1rem;
+
+    .wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      button {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1rem;
+      }
+    }
+
+    /* styling zonder popover */
+
+    nav {
+      display: flex;
+      position: unset;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      border: none;
+      background-color: inherit;
+      padding: 1rem;
+
+      ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        padding: 0;
+        gap: 1.5rem;
+
+        a {
+          color: white;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  @supports selector(:popover-open) {
+    nav[popover] {
+      display: none;
+      position: fixed;
+      height: 100vh;
+      width: 50%;
+      inset: 0 0 auto auto;
+      margin: 0;
+      background-color: #333;
+    }
+
+    nav:popover-open {
+      display: flex;
+      flex-direction: column;
+
+      ul {
+        flex-direction: column;
+        gap: 2rem;
+      }
+    }
+  }
+</style>
